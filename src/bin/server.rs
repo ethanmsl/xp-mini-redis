@@ -53,7 +53,8 @@ struct Cli {
 #[cfg(not(feature = "otel"))]
 fn set_up_logging() -> mini_redis::Result<()> {
     // See https://docs.rs/tracing for more info
-    tracing_subscriber::fmt::try_init()
+    console_subscriber::init();
+    Ok(())
 }
 
 #[cfg(feature = "otel")]
